@@ -4600,8 +4600,9 @@ Version: 2018-05-07"
   "Activate command mode and run `xah-fly-command-mode-activate-hook'
 Version: 2017-07-07"
   (interactive)
-  (xah-fly-command-mode-init)
-  (run-hooks 'xah-fly-command-mode-activate-hook))
+  (when xah-fly-insert-state-p
+    (xah-fly-command-mode-init)
+    (run-hooks 'xah-fly-command-mode-activate-hook)))
 
 (defun xah-fly-command-mode-activate-no-hook ()
   "Activate command mode. Does not run `xah-fly-command-mode-activate-hook'
